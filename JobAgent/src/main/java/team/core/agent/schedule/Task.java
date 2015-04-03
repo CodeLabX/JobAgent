@@ -52,8 +52,8 @@ public class Task extends RecursiveAction {
     @Override
     protected void compute() {
         System.out.println(Thread.currentThread().getName());
-        //StartJob();
-        test();
+        StartJob();
+        //test();
     }
 
     public int StartJob() {

@@ -1,6 +1,11 @@
 package team.core.agent.schedule;
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.Properties;
+=======
+
+
+>>>>>>> origin/Dev
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
@@ -9,9 +14,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class JobSchedule {
     public static void main(String[] args) {
+<<<<<<< HEAD
 
 /*        System.out.println(System.getProperty("user.dir"));
 
+=======
+>>>>>>> origin/Dev
         String[] paths = System.getProperty("user.dir").split("\\\\");
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < paths.length - 1; i++) {
@@ -19,6 +27,7 @@ public class JobSchedule {
         }
         String urlStr = sb.toString() +"jarlib\\"+ "DemoTask.jar";
         System.out.println("jar包："+urlStr);
+<<<<<<< HEAD
 
        */
 
@@ -34,6 +43,8 @@ public class JobSchedule {
 
 
         String urlStr = ConfigHelper.ReadConfig("jar_path")+ "\\DemoTask.jar";
+=======
+>>>>>>> origin/Dev
         String className = "demo.task.mytask";
         String[] params = null;
 

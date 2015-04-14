@@ -1,10 +1,6 @@
 package team.core.agent.schedule;
-
-import team.core.agent.task.ITask;
-
-import java.io.File;
-import java.net.URL;
-import java.net.URLClassLoader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
@@ -13,10 +9,34 @@ import java.util.concurrent.TimeUnit;
  */
 public class JobSchedule {
     public static void main(String[] args) {
-        String urlStr = "F:\\金山快盘\\项目\\JavaProject\\CodeLabX\\JobAgent\\jarlib\\DemoTask.jar";
+
+/*        System.out.println(System.getProperty("user.dir"));
+
+        String[] paths = System.getProperty("user.dir").split("\\\\");
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < paths.length - 1; i++) {
+            sb.append(paths[i] + "\\");
+        }
+        String urlStr = sb.toString() +"jarlib\\"+ "DemoTask.jar";
+        System.out.println("jar包："+urlStr);
+
+       */
+
+/*        Properties configFile = new Properties();
+        try {
+            configFile.load(JobSchedule.class.getClassLoader().getResourceAsStream("config.properties"));
+            String name = configFile.getProperty("jar_path");
+            System.out.println(name);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }*/
+
+
+        String urlStr = ConfigHelper.ReadConfig("jar_path")+ "\\DemoTask.jar";
         String className = "demo.task.mytask";
         String[] params = null;
-        //StartJob(urlStr, className, params);
+
         Task t = new Task(urlStr, className, params);
         Task t1 = new Task(urlStr, className, params);
 
@@ -30,6 +50,5 @@ public class JobSchedule {
         }
         pool.shutdown();
     }
-
 
 }

@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import com.sun.rowset.CachedRowSetImpl;
+import team.core.agent.schedule.ConfigHelper;
 
 public class SQLiteHelper {
 
@@ -27,9 +28,16 @@ public class SQLiteHelper {
         }
     }
 
-    public static String connString = new String("jdbc:sqlite:"
-            + "hello.db.sqlite");
+    public static String connString = "jdbc:sqlite:"+ConfigHelper.ReadConfig("db_path");
 
+    /**
+     *
+     * @param connString
+     * @param SQL
+     * @param Params
+     * @return
+     * @throws Exception
+     */
     public static List<Map<String, Object>> Query(String connString,
                                                   String SQL, Object[] Params) throws Exception {
 
@@ -73,6 +81,14 @@ public class SQLiteHelper {
 
     }
 
+    /**
+     *
+     * @param connString
+     * @param SQL
+     * @param Params
+     * @return
+     * @throws Exception
+     */
     public static CachedRowSetImpl Query_CachedRowSet(String connString,
                                                       String SQL, Object[] Params) throws Exception {
 
@@ -108,6 +124,14 @@ public class SQLiteHelper {
 
     }
 
+    /**
+     *
+     * @param connString
+     * @param SQL
+     * @param Params
+     * @return
+     * @throws Exception
+     */
     public static int ExecuteNoTrans(String connString, String SQL,
                                      Object[] Params) throws Exception {
         Connection conn = null;
@@ -135,6 +159,15 @@ public class SQLiteHelper {
         }
     }
 
+    /**
+     *
+     * @param conn
+     * @param SQL
+     * @param Params
+     * @param Commit
+     * @return
+     * @throws Exception
+     */
     public static Connection ExecuteWithTrans(Connection conn, String SQL,
                                               Object[] Params, int Commit) throws Exception {
         try {
